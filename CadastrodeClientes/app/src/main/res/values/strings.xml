@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Cadastro de Clientes</string>
-    <string name="tvCodigo">Código</string>
-    <string name="tvNome">Nome</string>
-    <string name="tvCpf">CPF</string>
-    <string name="tvEndereco">Endereço</string>
-    <string name="tvTelefone">Telefone</string>
-    <string name="tvEmail">Email</string>
+    <string name="tvCodigo">Código:</string>
+    <string name="tvNome">Nome:</string>
+    <string name="tvCpf">CPF:</string>
+    <string name="tvEndereco">Endereço:</string>
+    <string name="tvTelefone">Telefone:</string>
+    <string name="tvEmail">Email:</string>
 </resources>
