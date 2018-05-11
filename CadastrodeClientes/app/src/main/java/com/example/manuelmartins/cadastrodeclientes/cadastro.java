@@ -52,6 +52,173 @@ public class cadastro extends AppCompatActivity {
 
     }
 
+    /*
+  public void actionPerformed(ActionEvent e) {
+
+// clicou no inserir
+
+        if (e.getSource() == b1) {
+
+            try {
+
+                    String numero = tfCodigo.getText();
+
+                    String tipo = tfTipo.getText();
+
+                    String bairro = tfBairro.getText();
+
+                    double area = Double.parseDouble(tfArea.getText());
+
+                    int numero_quartos =
+                    Integer.parseInt(this.tfNumeroQuartos.getText());
+
+                    int numero_banheiros =
+                    Integer.parseInt(this.tfNumeroBanheiros.getText());
+
+                    int numero_garagens =
+                    Integer.parseInt(this.tfGaragens.getText());
+
+                    double preco = Double.parseDouble(this.tfPreco.getText()
+           );
+
+           Imovel i = new
+                Imovel(numero,tipo,bairro,area,numero_quartos,numero_banheiros,
+                numero_garagens,preco);
+
+                if (rep.inserir(i)) {
+
+                JOptionPane.showMessageDialog(this, "imóvel inserido com
+                sucesso");
+
+                limpa_campos();
+
+                }
+
+                else
+
+                JOptionPane.showMessageDialog(this, "Repositório cheio");
+
+                }
+
+                catch(Exception ex) {
+
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+
+                }
+
+            }
+
+          // clicou no consultar
+
+        if (e.getSource() == b2) {
+
+            try {
+
+                Imovel c = rep.procurar(tfCodigo.getText());
+
+                if (c != null) {
+
+                tfTipo.setText(c.getTipo());
+
+                tfBairro.setText(c.getBairro());
+
+                tfArea.setText("" + c.getArea());
+
+                tfNumeroQuartos.setText("" + c.getNumero_quartos());
+
+                tfNumeroBanheiros.setText("" + c.getNumero_banheiros());
+
+                tfGaragens.setText("" + c.getNumero_garagens());
+
+                tfPreco.setText("" + c.getPreco());
+
+        }
+
+        else
+
+        JOptionPane.showMessageDialog(this, "imóvel não
+        localizado");
+     }
+
+     catch(Exception ex) {
+
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+
+}
+
+}
+
+// clicou no alterar
+
+        if (e.getSource() == b3) {
+
+            try {
+
+                String numero = tfCodigo.getText();
+
+                String tipo = tfTipo.getText();
+
+                String bairro = tfBairro.getText();
+
+                double area = Double.parseDouble(tfArea.getText());
+
+                int numero_quartos =
+                Integer.parseInt(this.tfNumeroQuartos.getText());
+
+                int numero_banheiros =
+                Integer.parseInt(this.tfNumeroBanheiros.getText());
+                int numero_garagens = Integer.parseInt(this.tfGaragens.getText());
+
+                double preco = Double.parseDouble(this.tfPreco.getText() );
+
+                Imovel i = new Imovel( numero, tipo, bairro, area, numero_quartos,
+                numero_banheiros, numero_garagens, preco);
+
+                if (rep.atualizar(i)) {
+
+                JOptionPane.showMessageDialog(this, "imóvel atualizado com
+                sucesso");
+
+                limpa_campos();
+
+                }
+
+                else
+
+                JOptionPane.showMessageDialog(this, "Imóvel não
+                encontrado");
+
+                }
+
+                catch(Exception ex) {
+
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+
+        } }
+
+        // clicou no remover
+
+        if (e.getSource() == b4) {
+
+                if (rep.remover(tfCodigo.getText())) {
+
+                    JOptionPane.showMessageDialog(this, "imóvel removido
+                    com sucesso");
+
+                limpa_campos();
+
+                }
+
+                else
+
+                    JOptionPane.showMessageDialog(this, "imóvel não
+                    localizado");
+
+                }
+
+        }
+    * */
+
 
 
 
