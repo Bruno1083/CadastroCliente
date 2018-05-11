@@ -6,4 +6,8 @@
     <string name="tvEndereco">Endereço:</string>
     <string name="tvTelefone">Telefone:</string>
     <string name="tvEmail">Email:</string>
+    <string name="inserir">Inserir</string>
+    <string name="alterar">Alterar</string>
+    <string name="consultar">Consultar</string>
+    <string name="remover">Remover</string>
 </resources>

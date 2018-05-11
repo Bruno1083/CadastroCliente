@@ -1,14 +1,20 @@
 package com.example.manuelmartins.cadastrodeclientes;
 
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
+import java.util.Objects;
+
 public class Cliente {
-    private int codigo;
+    private String codigo;
     private String nome;
     private String CPF;
     private String endereco;
     private String telefone;
     private String email;
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
@@ -32,7 +38,7 @@ public class Cliente {
         return email;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
@@ -56,7 +62,7 @@ public class Cliente {
         this.email = email;
     }
 
-    public Cliente(int codigo, String nome, String CPF, String endereco, String telefone, String email) {
+    public Cliente(String codigo, String nome, String CPF, String endereco, String telefone, String email) {
         this.codigo = codigo;
         this.nome = nome;
         this.CPF = CPF;
@@ -64,4 +70,5 @@ public class Cliente {
         this.telefone = telefone;
         this.email = email;
     }
+
 }
