@@ -60,6 +60,23 @@ public class Repositorio {
         }
     }
 
+    public boolean remover(String codigo){
+        int i = procurarIndice(codigo);
+        if(i != -1){
+            indice = indice -1;
+            clientes[i] = clientes[indice];
+            clientes[indice] = null;
+                return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean existe(String codigo){
+        int i = procurarIndice(codigo);
+        return i != -1;
+    }
+
 }
 
 
