@@ -71,6 +71,7 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
                         Toast.makeText(getApplicationContext(), "Cliente inserido com sucesso", Toast.LENGTH_SHORT).show();
 
                         limpa_campos();
+                        etCodigo.requestFocus();
                     } else {
 
                         Toast.makeText(getApplicationContext(), "Repositório cheio", Toast.LENGTH_SHORT).show();
@@ -85,9 +86,7 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
 
                 break;
             }
-        }
 
-        switch (v.getId()){
             case R.id.btConsultar: {
 
                 try {
@@ -114,9 +113,7 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
 
                 break;
             }
-        }
 
-        switch (v.getId()){
             case R.id.btAlterar: {
 
                 try {
@@ -135,6 +132,7 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
                         Toast.makeText(getApplicationContext(), "Cliente atualizado com sucesso", Toast.LENGTH_SHORT).show();
 
                         limpa_campos();
+                        etCodigo.requestFocus();
                     }else{
 
                         Toast.makeText(getApplicationContext(), "Cliente não encontrado", Toast.LENGTH_SHORT).show();
@@ -150,16 +148,15 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
 
                 break;
             }
-        }
 
-        switch (v.getId()){
             case R.id.btRemover: {
 
                 if(rep.remover(etCodigo.getText().toString())){
 
                     Toast.makeText(getApplicationContext(), "Cliente removido com sucesso", Toast.LENGTH_SHORT).show();
 
-                   limpa_campos();
+                    limpa_campos();
+                    etCodigo.requestFocus();
 
                 }else{
 
