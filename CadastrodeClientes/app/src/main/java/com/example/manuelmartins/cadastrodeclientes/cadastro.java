@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class cadastro extends AppCompatActivity implements View.OnClickListener {
     EditText etCodigo,etNome,etEndereco,etCpf,etTelefone,etEmail;
@@ -66,16 +67,19 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
                     Cliente cliente = new Cliente(codigo,nome,cpf,telefone,email,endereco);
 
                     if (rep.inserir(cliente)){
-                        //JOptionPane.showMessageDialog(this, "Cliente inserido com sucesso");
+
+                        Toast.makeText(getApplicationContext(), "Cliente inserido com sucesso", Toast.LENGTH_SHORT).show();
+
                         limpa_campos();
                     } else {
-                        //JOptionPane.showMessageDialog(this, "Repositório cheio");
+
+                        Toast.makeText(getApplicationContext(), "Repositório cheio", Toast.LENGTH_SHORT).show();
                     }
 
                 }
                 catch (Exception ex){
 
-                    //JOptionPane.showMessageDialog(this, ex.getMessage());
+                    Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -98,15 +102,14 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
                         etEmail.setText(cliente.getEmail());
                     }else {
 
-                        //JOptionPane.showMessageDialog(this, "Cliente não localizado");
+                        Toast.makeText(getApplicationContext(), "Cliente não localizado", Toast.LENGTH_SHORT).show();
 
                     }
 
                 }
                 catch (Exception ex){
 
-                    //JOptionPane.showMessageDialog(this, ex.getMessage());
-
+                    Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
                 break;
@@ -128,19 +131,20 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
                     Cliente cliente = new Cliente(codigo,nome,cpf,telefone,email,endereco);
 
                     if(rep.atualizar(cliente)){
-                        //  JOptionPane.showMessageDialog(this, "Cliente atualizado com sucesso");
+
+                        Toast.makeText(getApplicationContext(), "Cliente atualizado com sucesso", Toast.LENGTH_SHORT).show();
 
                         limpa_campos();
                     }else{
 
-                      //JOptionPane.showMessageDialog(this, "Cliente não encontrado");
+                        Toast.makeText(getApplicationContext(), "Cliente não encontrado", Toast.LENGTH_SHORT).show();
 
                     }
 
                 }
                 catch (Exception ex){
 
-                    //JOptionPane.showMessageDialog(this, ex.getMessage());
+                    Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -152,11 +156,15 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
             case R.id.btRemover: {
 
                 if(rep.remover(etCodigo.getText().toString())){
-                    // JOptionPane.showMessageDialog(this, "Cliente removido com sucesso");
+
+                    Toast.makeText(getApplicationContext(), "Cliente removido com sucesso", Toast.LENGTH_SHORT).show();
+
                    limpa_campos();
 
                 }else{
-                    //JOptionPane.showMessageDialog(this, "Cliente não localizado");
+
+                    Toast.makeText(getApplicationContext(), "Cliente não localizado", Toast.LENGTH_SHORT).show();
+
                 }
 
                 break;

@@ -25,13 +25,13 @@ public class Repositorio {
     }
 
     public Cliente procurar(String codigo) {
-        Cliente c = null;
+        Cliente cliente = null;
         int i = procurarIndice(codigo);
         if (i == -1) {
             return null;
         } else {
-            c = clientes[i];
-            return c;
+            cliente = clientes[i];
+            return cliente;
         }
     }
 

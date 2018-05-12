@@ -172,31 +172,29 @@
 
     <Button
         android:id="@+id/btInserir"
-        android:layout_width="180dp"
+        android:layout_width="170dp"
         android:layout_height="47dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:text="@string/inserir"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmail"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
 
     <Button
         android:id="@+id/btAlterar"
-        android:layout_width="180dp"
+        android:layout_width="170dp"
         android:layout_height="46dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/alterar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btInserir"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/btInserir" />
 
     <Button
         android:id="@+id/btConsultar"
-        android:layout_width="180dp"
+        android:layout_width="170dp"
         android:layout_height="47dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -207,12 +205,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btInserir"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmail"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
 
     <Button
         android:id="@+id/btRemover"
-        android:layout_width="180dp"
+        android:layout_width="170dp"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -223,7 +220,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btAlterar"
-        app:layout_constraintTop_toBottomOf="@+id/btConsultar"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/btConsultar" />
 
 </android.support.constraint.ConstraintLayout>
