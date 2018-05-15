@@ -14,10 +14,6 @@ public class Cliente {
     private String telefone;
     private String email;
 
-    public Cliente() {
-
-    }
-
     public String getCodigo() {
         return codigo;
     }

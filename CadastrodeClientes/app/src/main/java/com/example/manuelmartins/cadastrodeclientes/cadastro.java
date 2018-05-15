@@ -1,15 +1,18 @@
 package com.example.manuelmartins.cadastrodeclientes;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class cadastro extends AppCompatActivity implements View.OnClickListener {
-    EditText etCodigo,etNome,etEndereco,etCpf,etTelefone,etEmail;
-    Button btInserir,btConsultar,btRemover,btAlterar;
+    private EditText etCodigo,etNome,etEndereco,etCpf,etTelefone,etEmail;
+    private Button btInserir,btConsultar,btRemover,btAlterar;
     private Repositorio rep;
 
 
@@ -22,6 +25,7 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
 
         etCodigo = (EditText) findViewById(R.id.edtCodigo);
         etNome = (EditText) findViewById(R.id.edtNome);
+
         etEndereco = (EditText) findViewById(R.id.edtEndereco);
         etCpf = (EditText) findViewById(R.id.edtCpf);
         etTelefone = (EditText) findViewById(R.id.edtTelefone);
@@ -52,29 +56,92 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
 
     }
 
+    private void validaCanpos(){
+
+        boolean res = false;
+
+        String codigo = etCodigo.getText().toString();
+        String nome = etNome.getText().toString();
+        String endereco = etEndereco.getText().toString();
+        String cpf = etCpf.getText().toString();
+        String telefone = etTelefone.getText().toString();
+        String email = etEmail.getText().toString();
+
+        if (isCampovazio(codigo)){
+            res = true;
+            etCodigo.requestFocus();
+        }else
+            if (isCampovazio(nome)){
+            etNome.requestFocus();
+            res = true;
+            }else
+                if (isCampovazio(cpf)){
+                etCpf.requestFocus();
+                res = true;
+                }else
+                     if (isCampovazio(endereco)){
+                        etEndereco.requestFocus();
+                        res = true;
+                    }else
+                        if (isCampovazio(telefone)){
+                        etTelefone.requestFocus();
+                        res = true;
+                        }else
+                            if (!isEmailValido(email)){
+                            etEmail.requestFocus();
+                            res = true;
+                            }
+
+   /* if (res){
+        AlertDialog.Builder dlg = new AlertDialog.Builder(this);
+        dlg.setTitle("Aviso");
+        dlg.setMessage("Ha campos inválidos ou em branco");
+        dlg.setNeutralButton("OK",null);
+        dlg.show();
+    }*/
+
+
+    }
+
+    private boolean isCampovazio(String valor){
+        boolean resultado = (TextUtils.isEmpty(valor) || valor.trim().isEmpty());
+        return resultado;
+    }
+
+    private boolean isEmailValido(String email){
+        boolean resultado = (isCampovazio(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        return resultado;
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btInserir: {
+
                 try {
+
                     String codigo = etCodigo.getText().toString();
-                    String nome = etCodigo.getText().toString();
-                    String endereco = etCodigo.getText().toString();
-                    String cpf = etCodigo.getText().toString();
-                    String telefone = etCodigo.getText().toString();
-                    String email = etCodigo.getText().toString();
+                    String nome = etNome.getText().toString();
+                    String cpf = etCpf.getText().toString();
+                    String endereco = etEndereco.getText().toString();
+                    String telefone = etTelefone.getText().toString();
+                    String email = etEmail.getText().toString();
+
+                    validaCanpos();
 
                     Cliente cliente = new Cliente(codigo,nome,cpf,telefone,email,endereco);
 
-                    if (rep.inserir(cliente)){
+                    if (!isCampovazio(codigo) && !isCampovazio(nome) && !isCampovazio(cpf) &&
+                            !isCampovazio(endereco) && !isCampovazio(telefone) && !isEmailValido(email) && rep.inserir(cliente)){
 
                         Toast.makeText(getApplicationContext(), "Cliente inserido com sucesso", Toast.LENGTH_SHORT).show();
-
                         limpa_campos();
                         etCodigo.requestFocus();
+
                     } else {
 
-                        Toast.makeText(getApplicationContext(), "Repositório cheio", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Ha campos inválidos ou em branco", Toast.LENGTH_SHORT).show();
+
                     }
 
                 }
@@ -92,6 +159,7 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
                 try {
 
                     Cliente cliente = rep.procurar(etCodigo.getText().toString());
+
                     if (cliente != null){
                         etCodigo.setText(cliente.getCodigo());
                         etNome.setText(cliente.getNome());
@@ -99,6 +167,7 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
                         etCpf.setText(cliente.getCPF());
                         etTelefone.setText(cliente.getTelefone());
                         etEmail.setText(cliente.getEmail());
+
                     }else {
 
                         Toast.makeText(getApplicationContext(), "Cliente não localizado", Toast.LENGTH_SHORT).show();
@@ -119,11 +188,11 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
                 try {
 
                     String codigo = etCodigo.getText().toString();
-                    String nome = etCodigo.getText().toString();
-                    String endereco = etCodigo.getText().toString();
-                    String cpf = etCodigo.getText().toString();
-                    String telefone = etCodigo.getText().toString();
-                    String email = etCodigo.getText().toString();
+                    String nome = etNome.getText().toString();
+                    String endereco = etEndereco.getText().toString();
+                    String cpf = etCpf.getText().toString();
+                    String telefone = etTelefone.getText().toString();
+                    String email = etEmail.getText().toString();
 
                     Cliente cliente = new Cliente(codigo,nome,cpf,telefone,email,endereco);
 
@@ -132,7 +201,9 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
                         Toast.makeText(getApplicationContext(), "Cliente atualizado com sucesso", Toast.LENGTH_SHORT).show();
 
                         limpa_campos();
+
                         etCodigo.requestFocus();
+
                     }else{
 
                         Toast.makeText(getApplicationContext(), "Cliente não encontrado", Toast.LENGTH_SHORT).show();
