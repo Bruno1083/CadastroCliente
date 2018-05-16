@@ -10,4 +10,10 @@
     <string name="alterar">Alterar</string>
     <string name="consultar">Consultar</string>
     <string name="remover">Remover</string>
+    <string name="msg_cliente_inserido">Cliente inserido com sucesso</string>
+    <string name="msg_campos_invalidos_brancos">Há campos inválidos ou em branco</string>
+    <string name="msg_atualizado">Cliente atualizado com sucesso</string>
+    <string name="msg_encontrado">Cliente não encontrado</string>
+    <string name="msg_removido">Cliente removido com sucesso</string>
+    <string name="msg_n_localisado">Cliente não localizado</string>
 </resources>

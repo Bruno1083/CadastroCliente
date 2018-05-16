@@ -19,10 +19,12 @@ public class Cliente {
     }
 
     public String getNome() {
+
         return nome;
     }
 
     public String getCPF() {
+
         return CPF;
     }
 
@@ -35,14 +37,17 @@ public class Cliente {
     }
 
     public String getEmail() {
+
         return email;
     }
 
     public void setCodigo(String codigo) {
+
         this.codigo = codigo;
     }
 
     public void setNome(String nome) {
+
         this.nome = nome;
     }
 

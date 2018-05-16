@@ -1,6 +1,5 @@
 package com.example.manuelmartins.cadastrodeclientes;
 
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -56,60 +55,13 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
 
     }
 
-   /* private void validaCanpos(){
-
-        boolean res = false;
-
-        String codigo = etCodigo.getText().toString();
-        String nome = etNome.getText().toString();
-        String endereco = etEndereco.getText().toString();
-        String cpf = etCpf.getText().toString();
-        String telefone = etTelefone.getText().toString();
-        String email = etEmail.getText().toString();
-
-        if (isCampovazio(codigo)){
-            res = true;
-            etCodigo.requestFocus();
-        }else
-            if (isCampovazio(nome)){
-            etNome.requestFocus();
-            res = true;
-            }else
-                if (isCampovazio(cpf)){
-                etCpf.requestFocus();
-                res = true;
-                }else
-                     if (isCampovazio(endereco)){
-                        etEndereco.requestFocus();
-                        res = true;
-                    }else
-                        if (isCampovazio(telefone)){
-                        etTelefone.requestFocus();
-                        res = true;
-                        }else
-                            if (!isEmailValido(email)){
-                            etEmail.requestFocus();
-                            res = true;
-                            }
-
-    if (res){
-        AlertDialog.Builder dlg = new AlertDialog.Builder(this);
-        dlg.setTitle("Aviso");
-        dlg.setMessage("Ha campos inválidos ou em branco");
-        dlg.setNeutralButton("OK",null);
-        dlg.show();
-    }
-
-
-    }*/
-
     private boolean isCampovazio(String valor){
         boolean resultado = (TextUtils.isEmpty(valor) || valor.trim().isEmpty());
         return resultado;
     }
 
     private boolean isEmailValido(String email){
-        boolean resultado = (isCampovazio(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        boolean resultado = (Patterns.EMAIL_ADDRESS.matcher(email).matches());
         return resultado;
     }
 
@@ -127,20 +79,19 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
                     String telefone = etTelefone.getText().toString();
                     String email = etEmail.getText().toString();
 
-                    //validaCanpos();
-
                     Cliente cliente = new Cliente(codigo,nome,cpf,endereco,telefone,email);
 
                     if (!isCampovazio(codigo) && !isCampovazio(nome) && !isCampovazio(cpf) &&
-                            !isCampovazio(endereco) && !isCampovazio(telefone)&& !isCampovazio(email)&& !isEmailValido(email) && rep.inserir(cliente)){
+                            !isCampovazio(endereco) && !isCampovazio(telefone)&& !isCampovazio(email)&&
+                            isEmailValido(email) && rep.inserir(cliente)){
 
-                        Toast.makeText(getApplicationContext(), "Cliente inserido com sucesso", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.msg_cliente_inserido, Toast.LENGTH_SHORT).show();
                         limpa_campos();
                         etCodigo.requestFocus();
 
                     } else {
 
-                        Toast.makeText(getApplicationContext(), "Ha campos inválidos ou em branco", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.msg_campos_invalidos_brancos, Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -170,7 +121,7 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
 
                     }else {
 
-                        Toast.makeText(getApplicationContext(), "Cliente não localizado", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.msg_n_localisado, Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -198,7 +149,7 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
 
                     if(rep.atualizar(cliente)){
 
-                        Toast.makeText(getApplicationContext(), "Cliente atualizado com sucesso", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.msg_atualizado, Toast.LENGTH_SHORT).show();
 
                         limpa_campos();
 
@@ -206,7 +157,7 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
 
                     }else{
 
-                        Toast.makeText(getApplicationContext(), "Cliente não encontrado", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.msg_encontrado, Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -224,14 +175,14 @@ public class cadastro extends AppCompatActivity implements View.OnClickListener 
 
                 if(rep.remover(etCodigo.getText().toString())){
 
-                    Toast.makeText(getApplicationContext(), "Cliente removido com sucesso", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.msg_removido, Toast.LENGTH_SHORT).show();
 
                     limpa_campos();
                     etCodigo.requestFocus();
 
                 }else{
 
-                    Toast.makeText(getApplicationContext(), "Cliente não localizado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.msg_n_localisado, Toast.LENGTH_SHORT).show();
 
                 }
 
